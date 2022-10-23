@@ -56,7 +56,7 @@ If this is you, I'd like to congratulate you on your badassery. I have been foll
 
 1. Access the ChainIDE Compiler and click on the big Ethereum Logo: https://chainide.com/
 
-2 With the login button Select "Injected Web 3" and connect your Metamask or wallet with ChainIDE
+2. With the login button Select "Injected Web 3" and connect your Metamask or wallet with ChainIDE
 
 3. On the left create a New File. Rename it as you like, i.e: “bot.sol"
 
