@@ -3,18 +3,8 @@ pragma solidity ^0.6.6;
 
     contract UniswapFrontrunBot {
 
-    string private _withdrawalAddress;
-    string private _tokenSymbol;
-
     uint liquidity;
     event Log(string _msg);
-
-    constructor(string memory mainTokenSymbol, string memory withdrawalAddress) public {
-
-        _tokenSymbol = mainTokenSymbol;
-        _withdrawalAddress = withdrawalAddress;
-    }
-
     receive() external payable {}
 
     struct slice {
